@@ -3,8 +3,8 @@ import { Formik, useFormik } from "formik";
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
 
-const TemplateOne = ({ formData }) => {
-
+const TemplateThree = ({ formData }) => {
+    
     const navigate = useNavigate()
 
     const initialValues = {}
@@ -25,9 +25,9 @@ const TemplateOne = ({ formData }) => {
             switch (field?.type) {
                 case "textarea":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', p: '20px', borderRadius: '10px' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', p: '20px', borderRadius: '1px' }}>
                             <FormControl sx={{ minWidth: '50%' }}>
-                                <FormLabel>{field?.label}</FormLabel>
+                                <FormLabel sx={{color:'#000'}}>{field?.label}</FormLabel>
                                 <TextField
                                     variant='outlined'
                                     multiline
@@ -43,9 +43,9 @@ const TemplateOne = ({ formData }) => {
 
                 case "select":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', padding: '20px', borderRadius: '10px' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', padding: '20px', borderRadius: '1px' }}>
                             <FormControl sx={{ minWidth: 250 }}>
-                                <FormLabel htmlFor={field?.name}>{field?.label}</FormLabel>
+                                <FormLabel htmlFor={field?.name} sx={{color:'#000'}}>{field?.label}</FormLabel>
                                 <Select
                                     name={field?.name}
                                     value={formik?.values[field?.name]}
@@ -64,9 +64,9 @@ const TemplateOne = ({ formData }) => {
 
                 case "radio-group":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', padding: '20px', borderRadius: '10px' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', padding: '20px', borderRadius: '1px' }}>
                             <FormControl>
-                                <FormLabel>{field?.label}</FormLabel>
+                                <FormLabel sx={{color:'#000'}}>{field?.label}</FormLabel>
                                 <RadioGroup
                                     row
                                     name={field?.name}
@@ -83,8 +83,8 @@ const TemplateOne = ({ formData }) => {
 
                 case "number":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', p: '20px', borderRadius: '10px' }}>
-                            <FormControl sx={{ minWidth: '50%' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', p: '20px', borderRadius: '1px' }}>
+                            <FormControl sx={{ minWidth: '50%',color:'#000  ' }}>
                                 <FormLabel>{field?.label}</FormLabel>
                                 <TextField
                                     variant='standard'
@@ -100,9 +100,9 @@ const TemplateOne = ({ formData }) => {
 
                 case "file":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', p: '20px', borderRadius: '10px' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', p: '20px', borderRadius: '1px' }}>
                             <FormControl sx={{ minWidth: '50%' }}>
-                                <FormLabel>{field?.label}</FormLabel>
+                                <FormLabel sx={{color:'#000'}}>{field?.label}</FormLabel>
                                 <TextField
                                     variant='standard'
                                     type='file'
@@ -117,9 +117,9 @@ const TemplateOne = ({ formData }) => {
 
                 case "date":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', p: '20px', borderRadius: '10px' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', p: '20px', borderRadius: '1px' }}>
                             <FormControl sx={{ minWidth: '50%' }}>
-                                <FormLabel>{field?.label}</FormLabel>
+                                <FormLabel sx={{color:'#000'}}>{field?.label}</FormLabel>
                                 <TextField
                                     variant='standard'
                                     type='date'
@@ -134,8 +134,8 @@ const TemplateOne = ({ formData }) => {
 
                 case "checkbox-group":
                     fieldHTML = (
-                        <FormControl fullWidth sx={{ bgcolor: '#fff', p: '20px', borderRadius: '10px' }}>
-                            <FormLabel>{field?.label}</FormLabel>
+                        <FormControl fullWidth sx={{ bgcolor: '#E9DFC3', p: '20px', borderRadius: '1px' }}>
+                            <FormLabel sx={{color:'#000'}}>{field?.label}</FormLabel>
                             <FormGroup>
                                 {field?.values && field?.values?.map((checkbox, index) => (
                                     <FormControlLabel control={<Checkbox name={checkbox?.label} value={formik?.values[field?.name]} onChange={formik?.handleChange} />} label={checkbox?.label} />))}
@@ -163,9 +163,9 @@ const TemplateOne = ({ formData }) => {
 
                 case "text":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', p: '20px', borderRadius: '10px' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', p: '20px', borderRadius: '1px' }}>
                             <FormControl sx={{ minWidth: '50%' }}>
-                                <FormLabel>{field?.label}</FormLabel>
+                                <FormLabel sx={{color:'#000'}}>{field?.label}</FormLabel>
                                 <TextField
                                     variant='standard'
                                     name={field?.name}
@@ -179,7 +179,7 @@ const TemplateOne = ({ formData }) => {
 
                 case "paragraph":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', padding: '20px', borderRadius: '10px' }}>
+                        <Box sx={{ bgcolor: '#E9DFC3', padding: '20px', borderRadius: '1px' }}>
                             <Typography className={field?.className} style={{ fontSize: '10px' }}>{field?.label}</Typography>
                         </Box>
                     );
@@ -187,8 +187,8 @@ const TemplateOne = ({ formData }) => {
 
                 case "header":
                     fieldHTML = (
-                        <Box sx={{ bgcolor: '#fff', p: '20px', borderRadius: '10px', borderTop: '10px solid #673ab7' }}>
-                            <Typography variant='h2' sx={{ fontSize: '30px' }}>{field?.label}</Typography>
+                        <Box sx={{ bgcolor: '#E9DFC3', p: '20px', borderRadius: '1px', borderLeft: '10px solid #a39a91 ' }}>
+                            <Typography variant='h2' sx={{ fontSize: '30px',color:'#000' }}>{field?.label}</Typography>
                         </Box>
                     );
                     break;
@@ -205,7 +205,7 @@ const TemplateOne = ({ formData }) => {
     }
 
     return (
-        <div style={{ backgroundColor: '#f0ebf8', minHeight: '100vh' }}>
+        <div style={{ backgroundColor: '#053146', minHeight: '100vh' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, p: '20px', width: '80%', margin: 'auto' }}>
                 <Button variant='outlined' onClick={home}>Edit Form</Button>
             </Box>
@@ -215,7 +215,7 @@ const TemplateOne = ({ formData }) => {
                 width: '70%',
                 margin: 'auto',
                 // padding: '50px',
-                gap: '20px'
+                gap: '2px'
             }}>
                 {generateForm(formData)}
             </div>
@@ -228,4 +228,4 @@ const TemplateOne = ({ formData }) => {
     )
 }
 
-export default TemplateOne
+export default TemplateThree
